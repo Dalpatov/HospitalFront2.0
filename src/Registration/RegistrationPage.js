@@ -1,8 +1,12 @@
 import React, {useState} from 'react';
+import {useHistory} from 'react-router-dom';
 import axios from 'axios';
+import InputBox from '../Components/InputBox';
+import HeaderAll from '../Components/HeaderAll'
+import Bodypic from '../img/Bodypic.svg';
 
 
-function RegistrationPage({setTabs}){
+function RegistrationPage(){
   
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
@@ -10,15 +14,24 @@ function RegistrationPage({setTabs}){
   const [errorlogin, seterrorLogin] = useState('');
   const [errorpassword, setErrorpassword] = useState('');
   const [errorreppassword, setErrorreppassword] = useState('');
+  let history = useHistory();
 
-  const addNewTask  = async () => {
+  const addNewUser  = async () => {
     await axios.post('http://localhost:8000/createUser', {
       login,
       password,
     }).then(res => {
         setLogin('');
         setPassword('');
+        setReppassword('');
+        localStorage.setItem('user',login);
+        history.push('/maintab');
     });
+    
+  }
+
+  const swapPage = () =>{
+    history.push('/autorization');
   }
 
   const loginHandler = (e) =>{
@@ -49,22 +62,22 @@ function RegistrationPage({setTabs}){
           setErrorreppassword('');
         }
   }
-   const checkValid = () => {
-    {login !== "" && 
-    reppassword === password && 
-    password !== "" ? 
-    addNewTask() &&
-    setTabs(1): 
-    alert("Пароли должны совпадать, введите заново")}
-   }
+  //  const checkValid = () => {
+  //   {login !== "" && 
+  //   reppassword === password && 
+  //   password !== "" ? 
+  //   addNewUser():
+  //   alert("Пароли должны совпадать, введите заново")}
+  //  }
 
-  return(
-    <form >
-      <h1>Зарегестрироваться в системе</h1>
-        <div>
-          <h2>Регистрация</h2>
-          <label>Login</label>
-          <div>{errorlogin}</div>
+return(
+  <div>
+    <HeaderAll name='Зарегистрироваться в системе'/>
+      <div className="bodySvg">
+        <img src={Bodypic}></img>
+        <div className="inputLabel">
+          <span>Регистрация</span>
+          <span>Login</span>
           <input onChange = {e=> loginHandler(e)} 
             value={login} 
             name="login" 
@@ -72,25 +85,16 @@ function RegistrationPage({setTabs}){
             placeholder="Login">
           </input>
           <label>Password</label>
-          <div>{errorpassword}</div>
-          <input onChange = {e=> passwordHandler(e)} 
-            value={password} 
-            name="password" 
-            type="text" 
-            placeholder="Password">
-          </input>
+          <InputBox placeholder='Password' setPassword={setPassword} password={password}/>
           <label>Repeat password</label>
-          <div>{errorreppassword}</div>
-          <input onChange = {e=> reppasswordHandler(e)} 
-            value={reppassword}             
-            name="reppassword" 
-            type="text" 
-            placeholder="Repeat password">
-          </input>
-          <button onClick={()=> checkValid()}> Зарегестрироваться</button>         
-          <label>Авторизация</label>
+          <InputBox placeholder='Repeat password' setPassword={setPassword} password={password}/>
+            <div className="RightClickst">
+              <button onClick={()=> addNewUser()}> Зарегестрироваться</button>         
+              <label onClick={()=>swapPage()}>Авторизация</label>
+            </div>
         </div>
- </form>
+      </div>  
+  </div>
  )
 }
 

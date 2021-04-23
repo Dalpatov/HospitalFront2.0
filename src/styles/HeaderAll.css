@@ -1,0 +1,43 @@
+.head {
+    display: flex;
+    height: 10vh;
+    background: #C5E9FF;
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  .registrH1 {
+    display: flex;
+    align-items: center;
+    margin-left: 30vw;
+    margin-right: 5vw;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 36px;
+    background-color: #C5E9FF ;
+    line-height: 42px;
+    color: #000000;
+  }
+  
+  /* .registrH1-but {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 1.5vw 0vw 0vw 10vw;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 25px;
+    background-color: #C5E9FF ;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    height: 5vh;
+    line-height: 42px;
+    color: #000000;
+    border-radius: 4px;
+  } */
+  
+  /* .headerImg {
+    display: flex;
+    height: 60px;
+    width: 60px;
+    padding-left: 30px;
+    margin-top: 1.5vh;
+  } */

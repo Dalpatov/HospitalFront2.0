@@ -1,75 +1,73 @@
-// import React, {useState} from 'react';
-// import {useHistory} from 'react-router-dom';
-// import axios from 'axios';
+import React, {useState} from 'react';
+import {useHistory} from 'react-router-dom';
+import axios from 'axios';
+import InputBox from '../Components/InputBox';
+import HeaderAll from '../Components/HeaderAll'
+import Bodypic from '../img/Bodypic.svg';
+import AutoRiz from '../styles/AutoRiz.css';
 
-// function AutorizationPage({setTabs}){
-//   const [login, setLoginIn] = useState('');
-//   const [password, setPasswordIn] = useState('');
-//   const [errorlogin, seterrorLogin] = useState('');
-//   const [errorpassword, setErrorpassword] = useState('');
-//   let history = useHistory();
+function AutorizationPage(){
+  const [login, setLogin] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorlogin, seterrorLogin] = useState('');
+  let history = useHistory();
+  let reg = /(?=.*[A-Za-z])(?=.*[0-9]){6,}/
 
-//   const loginUser = async () => {
-//     await axios.post('http://localhost:8000/LogIn', {
-//       login,
-//       password,
-//     }).then(res => {
-//         setLoginIn('');
-//         setPasswordIn('');
-//         history.push('/maintab');
-//     });
-//   }
+  const loginUser = async () => {
+    
+    if(login.length < 6) {
+      errorlogin('Логин должен быть более 6 символов');
+    }
+    else if (password.match(reg) === null) {
+      alert('В пароле должна быть как минимум одна цифра и латинские буквы');
+    }
+    else if (password.length < 6) {
+      alert('Пароль должен быть более 6 символов');
+    } else {
+    await axios.post('http://localhost:8000/LogIn', {
+      login,
+      password,
+    }).then(res => {
+        setLogin('');
+        setPassword('');
+        history.push('/maintab');
+    });
+    }
+  }
+  const swapPage = () =>{
+    history.push('/registration');
+  }
 
-//   const swapPage = () =>{
-//     history.push('/registration');
-//   }
-
-//   const loginHandler = (e) =>{
-//     setLoginIn(e.target.value);
-//       if(e.target.value.length < 6){
-//         seterrorLogin("Длина логина должна быть больше 6 символов");
-//       } else {
-//           seterrorLogin('');
-//         }
-//     }
-
-//   const passwordHandler = (e) =>{
-//     setPasswordIn(e.target.value);
-//     let reg = /(?=.*[A-Za-z])(?=.*[0-9]){6,}/
-//       if(!reg.test(String(e.target.value).toLowerCase())){
-//         setErrorpassword("Пароль должен содержать минимум 6 сиволов и 1 число");
-//       } else {
-//           setErrorpassword('');
-//         }
-//      }
- 
-
-//   return(
-//     <form >
-//     <div>
-//       <h1>Войти в систему</h1>
-//     <div>
-//       <label>Login</label>
-//       <input onChange = {(e)=> loginHandler(e)} 
-//         id="login"
-//         value={login}
-//         name="login"
-//         type ="text"
-//         placeholder="Login">
-//       </input>
-//       <label>Password</label>        
-//       <input onChange = {e=> passwordHandler(e)}  
-//         name="password"
-//         value={password}
-//         id="password"
-//         type ="text"
-//         placeholder="Password">
-//       </input>
-//     </div>
-//     <button onClick={()=> loginUser()}>LogIn</button>
-//     <label onClick={()=> swapPage()}>Зарегестрироваться</label>  
-//     </div>
-//     </form>
-//   )
-// }
-// export default AutorizationPage;
+   return(
+    <div>
+    <HeaderAll name='Зарегистрироваться в системе'/>
+      <div className="bodyStyleSvg">
+        <img className="bodyPic" src={Bodypic}></img>
+        <div className="RegistrationBox">
+          <span className="RegSpan">Регистрация</span>
+          <span className="RegLogin">Login:</span>
+          <input className="RegInput" 
+            onChange={(e) => setLogin(e.target.value)}
+            value={login} 
+            name="login" 
+            type="text" 
+            placeholder="Login">
+          </input>
+          <label className="RegLogin">Password:</label>
+          <InputBox placeholder='Password'        
+            setPassword={setPassword}
+            password={password}/>
+              <div className="UserBox">
+                <button className="newUserButton" onClick={()=> loginUser()}> Войти</button>         
+                <label className="RegLabel" 
+                onClick={()=>swapPage()}>
+                Зарегестрироваться
+                </label>
+              </div>
+        </div>
+        
+      </div>  
+  </div>
+  )
+}
+export default AutorizationPage;

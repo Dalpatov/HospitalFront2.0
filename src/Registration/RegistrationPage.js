@@ -5,68 +5,53 @@ import InputBox from '../Components/InputBox';
 import HeaderAll from '../Components/HeaderAll'
 import Bodypic from '../img/Bodypic.svg';
 import Registr from '../styles/Registr.css';
+import Alert from '../Components/Alert';
 
 function RegistrationPage(){
   
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const [reppassword, setReppassword] = useState('');
-  const [errorlogin, seterrorLogin] = useState('');
-  const [errorpassword, setErrorpassword] = useState('');
-  const [errorreppassword, setErrorreppassword] = useState('');
+  const [check, setCheck] = useState(false);
+  const [text, setText] = useState('');
+  const [alertStyle, setAlertStyle] = useState('');
   let history = useHistory();
+  let reg = /(?=.*[A-Za-z])(?=.*[0-9]){6,}/
 
   const addNewUser  = async () => {
-    await axios.post('http://localhost:8000/createUser', {
-      login,
-      password,
-    }).then(res => {
-        setLogin('');
-        setPassword('');
-        setReppassword('');
-        history.push('/maintab');
-      });
+    if(login.length < 6) {
+      setText('Логин должен быть более 6 символов');
+    }
+    else if (password.match(reg) === null) {
+      setText('В пароле должна быть как минимум одна цифра и латинские буквы');
+    }
+    else if (reppassword !== password) {
+      setText('Пароли не совпадают');
+    } 
+    else if (password.length < 6) {
+      setText('Пароль должен быть более 6 символов');
+    } else {
+      try{
+        await axios.post('http://localhost:8000/createUser', {
+          login,
+          password,
+        }).then(res => {
+          setLogin('');
+          setPassword('');
+          setReppassword('');
+          history.push('/maintab');
+       });
+      } catch (e) {
+        setText('Пользователь уже существует');
+      }
+    }
+    setCheck(true);
+    setAlertStyle('error');
   }
-
   const swapPage = () =>{
     history.push('/autorization');
   }
 
-  const loginHandler = (e) =>{
-    setLogin(e.target.value)
-      if(e.target.value.length <6){
-        seterrorLogin("Длина логина должна быть больше 6 символов");
-      } else {
-          seterrorLogin("");
-        }
-  }
-
-  const passwordHandler = (e) =>{
-    setPassword(e.target.value);
-    let reg = /(?=.*[A-Za-z])(?=.*[0-9]){6,}/
-      if(!reg.test(String(e.target.value).toLowerCase())){
-        setErrorpassword("Пароль должен содержать минимум 6 сиволов и 1 число");
-      } else {
-          setErrorpassword('');
-      }
-  }
-  
-  const reppasswordHandler = (e) =>{
-    setReppassword(e.target.value);
-    let reg = /(?=.*[A-Za-z])(?=.*[0-9]){6,}/
-      if(!reg.test(String(e.target.value).toLowerCase())){
-        setErrorreppassword("Пароль должен совпадать");
-      } else {
-          setErrorreppassword('');
-        }
-  }
-   const checkValid = () => {
-    {login !== "" && 
-    reppassword === password && 
-    password !== "" ? 
-    addNewUser():
-    alert("Пароли должны совпадать, введите заново")}
-   }
 
 return(
   <div>
@@ -76,7 +61,7 @@ return(
         <div className="RegistrationBox">
           <span className="RegSpan">Регистрация</span>
           <span className="RegLogin">Login:</span>
-          <input className="RegInput1" onChange = {e=> loginHandler(e)} 
+          <input className="RegInput"  onChange={(e) => setLogin(e.target.value)}
             value={login} 
             name="login" 
             type="text" 
@@ -91,7 +76,7 @@ return(
             setPassword={setReppassword} 
             password={reppassword}/>
               <div className="UserBox">
-                <button className="newUserButton" onClick={()=> checkValid()}> Зарегестрироваться</button>         
+                <button className="newUserButton" onClick={()=> addNewUser()}> Зарегестрироваться</button>         
                 <label className="RegLabel" 
                 onClick={()=>swapPage()}>
                 Авторизация
@@ -99,6 +84,12 @@ return(
               </div>
         </div>
       </div>  
+     <Alert
+      text={text} 
+      state={check} 
+      setAlertFlag={setCheck} 
+      alertStyle={alertStyle}
+     />
   </div>
  )
 }

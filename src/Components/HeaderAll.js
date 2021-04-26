@@ -4,10 +4,10 @@ import '../styles/HeaderAll.css'
 function HeaderAll ({name}){
   return(
     <div>
-     <header className='head'>
-      <img src={Headpic}></img>
-    <h1 className="registrH1">{name}</h1>
-    </header>
+      <header className='head'>
+        <img src={Headpic}></img>
+        <h1 className="registrH1">{name}</h1>
+      </header>
     </div>
   )
 }

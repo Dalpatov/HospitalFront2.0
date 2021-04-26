@@ -13,22 +13,12 @@ function App() {
   return (
 
     <div className="allPages">
-    {/* <Switch>
+     <Switch>
       <Route path='/maintab' component={MainTab}/>
       <Route path='/registration' component={RegistrationPage}/>
       <Route path='/autorization' component={AutorizationPage}/>
     </Switch>
     <Redirect from='/' to='/registration'/>
-    {localStorage.getItem('user') 
-        ? <Switch><Redirect from='/' to='/maintab' /></Switch> 
-        : window.location.href !== 'http://localhost:3000/autorization' 
-        ? window.location.href !== 'http://localhost:3000/registration' 
-        ? <Redirect from='/' to='/autorization' />
-        : null 
-        : null
-      } */}
-
-      <RegistrationPage/>
    </div>
   );
 }

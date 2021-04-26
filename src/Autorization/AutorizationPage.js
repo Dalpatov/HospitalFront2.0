@@ -16,7 +16,6 @@
 //     }).then(res => {
 //         setLoginIn('');
 //         setPasswordIn('');
-//         localStorage.setItem('user',login)
 //         history.push('/maintab');
 //     });
 //   }

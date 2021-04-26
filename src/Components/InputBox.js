@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-
 import { makeStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
@@ -31,7 +30,7 @@ return (
     type={showPassword ? 'text' : 'password'}
     value={password}
     placeholder={placeholder}
-    className="inp-box" 
+    className="RegInput1" 
     onChange={(e) => handleChange(e)}
     endAdornment={
      <InputAdornment position="end">

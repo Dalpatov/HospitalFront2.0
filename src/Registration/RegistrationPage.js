@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
-import {useHistory} from 'react-router-dom';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import InputBox from '../Components/InputBox';
 import HeaderAll from '../Components/HeaderAll'
 import Bodypic from '../img/Bodypic.svg';
-
+import Registr from '../styles/Registr.css';
 
 function RegistrationPage(){
   
@@ -24,10 +24,8 @@ function RegistrationPage(){
         setLogin('');
         setPassword('');
         setReppassword('');
-        localStorage.setItem('user',login);
         history.push('/maintab');
-    });
-    
+      });
   }
 
   const swapPage = () =>{
@@ -62,36 +60,43 @@ function RegistrationPage(){
           setErrorreppassword('');
         }
   }
-  //  const checkValid = () => {
-  //   {login !== "" && 
-  //   reppassword === password && 
-  //   password !== "" ? 
-  //   addNewUser():
-  //   alert("Пароли должны совпадать, введите заново")}
-  //  }
+   const checkValid = () => {
+    {login !== "" && 
+    reppassword === password && 
+    password !== "" ? 
+    addNewUser():
+    alert("Пароли должны совпадать, введите заново")}
+   }
 
 return(
   <div>
     <HeaderAll name='Зарегистрироваться в системе'/>
-      <div className="bodySvg">
-        <img src={Bodypic}></img>
-        <div className="inputLabel">
-          <span>Регистрация</span>
-          <span>Login</span>
-          <input onChange = {e=> loginHandler(e)} 
+      <div className="bodyStyleSvg">
+        <img className="bodyPic" src={Bodypic}></img>
+        <div className="RegistrationBox">
+          <span className="RegSpan">Регистрация</span>
+          <span className="RegLogin">Login:</span>
+          <input className="RegInput1" onChange = {e=> loginHandler(e)} 
             value={login} 
             name="login" 
             type="text" 
             placeholder="Login">
           </input>
-          <label>Password</label>
-          <InputBox placeholder='Password' setPassword={setPassword} password={password}/>
-          <label>Repeat password</label>
-          <InputBox placeholder='Repeat password' setPassword={setPassword} password={password}/>
-            <div className="RightClickst">
-              <button onClick={()=> addNewUser()}> Зарегестрироваться</button>         
-              <label onClick={()=>swapPage()}>Авторизация</label>
-            </div>
+          <label className="RegLogin">Password:</label>
+          <InputBox placeholder='Password'        
+            setPassword={setPassword}
+            password={password}/>
+          <label className="RegLogin">Repeat password:</label>
+          <InputBox placeholder='Repeat password'           
+            setPassword={setReppassword} 
+            password={reppassword}/>
+              <div className="UserBox">
+                <button className="newUserButton" onClick={()=> checkValid()}> Зарегестрироваться</button>         
+                <label className="RegLabel" 
+                onClick={()=>swapPage()}>
+                Авторизация
+                </label>
+              </div>
         </div>
       </div>  
   </div>

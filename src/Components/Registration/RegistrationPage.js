@@ -1,26 +1,26 @@
-import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
-import axios from 'axios'
-import InputBox from '../InputBox/InputBox'
-import HeaderAll from '../HeaderAll/HeaderAll'
-import Bodypic from '../../Img/bodypic.svg'
-import './RegistrStyle.css'
-import Alert from '../Alert/Alert'
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import axios from 'axios';
+import InputBox from '../InputBox/InputBox';
+import HeaderAll from '../HeaderAll/HeaderAll';
+import Bodypic from '../../Img/bodypic.svg';
+import './RegistrStyle.css';
+import Alert from '../Alert/Alert';
 
 function RegistrationPage() {
-	const [login, setLogin] = useState('')
-	const [password, setPassword] = useState('')
-	const [repassword, setRepassword] = useState('')
-	const [check, setCheck] = useState(false)
-	const [text, setText] = useState('')
-	const [alertStyle, setAlertStyle] = useState('')
-	let history = useHistory()
-	let reg = /(?=.*[A-Za-z])(?=.*[0-9]){6,}/
+	const [login, setLogin] = useState('');
+	const [password, setPassword] = useState('');
+	const [repassword, setRepassword] = useState('');
+	const [check, setCheck] = useState(false);
+	const [text, setText] = useState('');
+	const [alertStyle, setAlertStyle] = useState('');
+	let history = useHistory();
+	let reg = /(?=.*[A-Za-z])(?=.*[0-9]){6,}/;
 
 	const errorMessage = (textError) => {
-		setAlertStyle('error')
-		setCheck(true)
-		setText(textError)
+		setAlertStyle('error');
+		setCheck(true);
+		setText(textError);
 	}
 
 	const addNewUser = async () => {
@@ -33,7 +33,7 @@ function RegistrationPage() {
 			)
 		}
 		if (repassword !== password) {
-			return errorMessage('Пароли не совпадают')
+			return errorMessage('Пароли не совпадают');
 		}
 		try {
 			await axios
@@ -42,17 +42,17 @@ function RegistrationPage() {
 					password,
 				})
 				.then((res) => {
-					setLogin('')
-					setPassword('')
-					setRepassword('')
-					history.push('/maintab')
+					setLogin('');
+					setPassword('');
+					setRepassword('');
+					history.push('/maintab');
 				})
 		} catch (e) {
-			setText('Пользователь уже существует')
+			setText('Пользователь уже существует');
 		}
 	}
 	const swapPage = () => {
-		history.push('/autorization')
+		history.push('/autorization');
 	}
 
 	return (
@@ -105,4 +105,4 @@ function RegistrationPage() {
 	)
 }
 
-export default RegistrationPage
+export default RegistrationPage;

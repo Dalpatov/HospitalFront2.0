@@ -2,23 +2,25 @@ import React from 'react';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 
-
-function Alert(props) {
+function Alert (props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-export default function CustomizedSnackbars({text, state, setAlertFlag, alertStyle}) {
+export default function CustomizedSnackbars({ text, state, setCheck, alertStyle }) {
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
     }
-    setAlertFlag(false);
+    setCheck(false);
   };
 
   return (
     <div >
-      <Snackbar open={state} autoHideDuration={6000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity={alertStyle}>
+      <Snackbar open={state}
+      autoHideDuration={2000} 
+      onClose={handleClose}>
+        <Alert onClose={handleClose} 
+        severity={alertStyle}>
           {text}
         </Alert>
       </Snackbar>

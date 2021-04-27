@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
-import Headpic from '../img/Headpic.svg'
-import '../styles/HeaderAll.css'
-function HeaderAll ({name}){
+import React, { useState } from 'react';
+import Headpic from '../../Img/Headpic.svg';
+import './HeaderAll.css'
+function HeaderAll ({ name }){
   return(
     <div>
       <header className='head'>

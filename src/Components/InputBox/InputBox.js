@@ -3,16 +3,16 @@ import {
   IconButton,
   InputAdornment,
   FormControl,
-  OutlinedInput,
+  OutlinedInput
 } from '@material-ui/core';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 
 function InputAdornments({ placeholder, setPassword, password }) {
- 
   const [showPassword, setShowPassword] = useState(false);
+  
   const handleChange = (e) => {
-    setPassword (e.target.value);
+    setPassword(e.target.value);
   };
       
   const handleClickShowPassword = () => {
@@ -46,5 +46,4 @@ return (
   </FormControl>
   )
 }
-      
  export default InputAdornments;

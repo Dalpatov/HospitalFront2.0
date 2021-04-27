@@ -1,15 +1,15 @@
-.bodyStyleSvg {
+.body-style-svg {
   display: flex;
   height: 90vh;
 }
 
-.bodyPic {
+.body-pic {
   margin: 10vw;
   width: 28vw;
   height: 40vh;
 }
 
-.RegistrationBox {
+.registration-box {
   display: flex;
   flex-direction: column;
   background: white;
@@ -20,7 +20,7 @@
   margin-bottom: 7%;
 }
 
-.RegSpan {
+.reg-span {
   display: flex;
   justify-content: center;
   margin: 3vw;
@@ -31,7 +31,7 @@
   color: #000000; 
 }
 
-.RegLogin {
+.reg-login {
   margin: 1vw 1vw 1vw 0;
   font-style: normal;
   font-weight: 300;
@@ -39,8 +39,7 @@
   line-height: 21px;
 }
 
-.RegInput {
-  /* margin: 0 0 3% 0; */
+.reg-input {
   height: 55px;
   background: white;
   border: 1px solid rgba(0, 0, 0, 0.4);
@@ -53,7 +52,7 @@
   padding: 18px 14px;
 }
 
-.UserBox {
+.user-box {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -62,7 +61,7 @@
   text-align: right;
 }
 
-.newUserButton {
+.new-user-button {
   height: 4vh;
   max-width: 400px;
   margin-top: 3vh;
@@ -78,7 +77,7 @@
   align-items: center;
 }
 
-.RegLabel {
+.reg-label {
   margin-top: 2vh;
   justify-content: center;
   font-style: normal;

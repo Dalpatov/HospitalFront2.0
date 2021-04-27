@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Headpic from '../../Img/Headpic.svg';
-import './HeaderAll.css'
+import './HeaderAll.css';
 function HeaderAll ({ name }){
   return(
     <div>
-      <header className='head'>
-        <img src={Headpic}></img>
-        <h1 className="registrH1">{name}</h1>
+      <header className="head">
+        <img src={ Headpic }
+        alt="Headpic"
+        >
+        </img>
+        <h1 className="registr-h1">{ name }</h1>
       </header>
     </div>
   )

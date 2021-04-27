@@ -1,20 +1,20 @@
 .head {
-    display: flex;
-    height: 10vh;
-    background: #C5E9FF;
-    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.25);
-  }
+  display: flex;
+  height: 10vh;
+  background: #C5E9FF;
+  box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
   
-  .registrH1 {
-    display: flex;
-    align-items: center;
-    margin-left: 30vw;
-    margin-right: 5vw;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 36px;
-    background-color: #C5E9FF ;
-    line-height: 42px;
-    color: #000000;
-  }
+.registr-h1 {
+  display: flex;
+  align-items: center;
+  margin-left: 30vw;
+  margin-right: 5vw;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 36px;
+  background-color: #C5E9FF ;
+  line-height: 42px;
+  color: #000000;
+}
   

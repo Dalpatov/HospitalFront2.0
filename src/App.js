@@ -6,17 +6,16 @@ import MainTab from './Components/MainTab/MainTab';
 import './App.css';
 
 function App() {
-  return (
-    <div className="allPages">
-      <Switch>
-       
-        <Route path="/maintab" component={ MainTab }/>
-        <Route path="/registration" component={ RegistrationPage }/>
-        {/* <Route path='/autorization' component={AutorizationPage}/>  */}
-      </Switch>
-       <Redirect from="/" to="/registration"/>
-    </div>
-  );
+	return (
+		<div className='allPages'>
+			<Switch>
+				<Route path='/maintab' component={MainTab} />
+				<Route path='/registration' component={RegistrationPage} />
+				{/* <Route path='/autorization' component={AutorizationPage}/>  */}
+			</Switch>
+			<Redirect from='/' to='/registration' />
+		</div>
+	);
 }
 
 export default App;

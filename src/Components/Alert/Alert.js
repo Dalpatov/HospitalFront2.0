@@ -18,9 +18,11 @@ export default function CustomizedSnackbars({ text, state, setCheck, alertStyle 
     <div >
       <Snackbar open={ state }
         autoHideDuration={ 2000 } 
-        onClose={ handleClose }>
+        onClose={ handleClose }
+      >
         <Alert onClose={ handleClose } 
-          severity={ alertStyle }>
+          severity={ alertStyle }
+        >
           { text }
         </Alert>
       </Snackbar>

@@ -26,19 +26,19 @@ function InputAdornments({ placeholder, setPassword, password }) {
 return (
   <FormControl>
     <OutlinedInput
-      type={showPassword ? 'text' : 'password'}
-      value={password}
-      placeholder={placeholder}
+      type={ showPassword ? 'text' : 'password' }
+      value={ password }
+      placeholder={ placeholder }
       className="RegInput1" 
       onChange={(e) => handleChange(e)}
       endAdornment={
         <InputAdornment position="end">
           <IconButton
             aria-label="toggle password visibility"
-            onClick={handleClickShowPassword}
-            onMouseDown={handleMouseDownPassword}
+            onClick={ handleClickShowPassword }
+            onMouseDown={ handleMouseDownPassword }
           >
-            {showPassword ? <Visibility /> : <VisibilityOff />}
+            { showPassword ? <Visibility /> : <VisibilityOff /> }
           </IconButton>
         </InputAdornment>
       }

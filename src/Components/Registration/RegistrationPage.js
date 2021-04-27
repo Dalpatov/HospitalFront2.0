@@ -59,14 +59,14 @@ function RegistrationPage() {
 		<div>
 			<HeaderAll name="Зарегистрироваться в системе" />
 			<div className="body-style-svg">
-				<img className="body-pic" alt="bodyPic" src={Bodypic}></img>
+				<img className="body-pic" alt="bodyPic" src={ Bodypic }></img>
 				<div className="registration-box">
 					<span className="reg-span">Регистрация</span>
 					<span className="reg-login">Login:</span>
 					<input
 						className="reg-input"
 						onChange={(e) => setLogin(e.target.value)}
-						value={login}
+						value={ login }
 						name="login"
 						type="text"
 						placeholder="Login"
@@ -74,14 +74,14 @@ function RegistrationPage() {
 					<label className="reg-login">Password:</label>
 					<InputBox
 						placeholder="Password"
-						setPassword={setPassword}
-						password={password}
+						setPassword={ setPassword }
+						password={ password }
 					/>
 					<label className="reg-login">Repeat password:</label>
 					<InputBox
 						placeholder="Repeat password"
-						setRepassword={setRepassword}
-						password={repassword}
+						setRepassword={ setRepassword }
+						password={ repassword }
 					/>
 					<div className="user-box">
             <button className="new-user-button" 
@@ -96,10 +96,10 @@ function RegistrationPage() {
 				</div>
 			</div>
 			<Alert
-				text={text}
-				state={check}
-				setCheck={setCheck}
-				alertStyle={alertStyle}
+				text={ text }
+				state={ check }
+				setCheck={ setCheck }
+				alertStyle={ alertStyle }
 			/>
 		</div>
 	)

@@ -2,7 +2,6 @@
   display: flex;
   height: 10vh;
   background: #C5E9FF;
-  box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
   
 .registr-h1 {
@@ -13,7 +12,6 @@
   font-style: normal;
   font-weight: 300;
   font-size: 36px;
-  background-color: #C5E9FF ;
   line-height: 42px;
   color: #000000;
 }

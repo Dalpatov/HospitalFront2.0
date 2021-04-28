@@ -46,6 +46,7 @@ function AutorizationPage() {
       setText('Пользователь уже существует');
     }
   };
+  
   const swapPage = () => {
     history.push('/registration');
   };

@@ -41,7 +41,7 @@ function InputAdornments({ placeholder, setPassword, password }) {
               {showPassword ? <Visibility /> : <VisibilityOff />}
             </IconButton>
           </InputAdornment>
-   )}
+        )}
       />
     </FormControl>
   );

@@ -13,7 +13,7 @@ function App() {
         <Route path="/registration" component={RegistrationPage} />
         <Route path='/autorization' component={AutorizationPage}/> 
       </Switch>
-      <Redirect from="/" to="/autorization" />
+      <Redirect from="/" to="/maintab" />
     </div>
   );
 }

@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 function MainTab() {
-  return(
+  return (
     <div>rrewgerg</div>
-   
-  )
+
+  );
 }
 export default MainTab;

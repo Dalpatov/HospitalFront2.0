@@ -1,0 +1,41 @@
+.MuiPaper-root.r {
+  background: #C5E9FF;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  box-shadow: inset 1px 8px 10px 0px rgba(0, 0, 0, 0.37);
+}
+
+.MuiTableRow-root.tables-row-style {
+  width: 200vw;
+  background: #C4C4C4;
+  border-bottom: 1px solid black;
+}
+
+.MuiTable-root.tables-style {
+  background-color: white;
+}
+
+.appoint-patient1.MuiTableCell-root {
+  width:  20%;
+  text-align: center;
+}
+
+.appoint-patient2.MuiTableCell-root {
+  text-align: center;
+  width:  15%;
+}
+.appoint-patient3.MuiTableCell-root {
+  text-align: center;
+  width:  40%;
+}
+.appoint-patient4.MuiTableCell-root {
+  width:  5%;
+  text-align: center;
+}
+
+.MuiTableCell-root {
+  word-break: break-word;
+  text-align: justify;
+}
+

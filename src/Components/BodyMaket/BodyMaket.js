@@ -4,7 +4,7 @@ import { TextField, MenuItem } from '@material-ui/core';
 import Alert from '../Alert/Alert';
 import './BodyMaket.css';
 
-function BodyMaket() {
+function BodyMaket({ showAllTabs }) {
   const [patient, setPatient] = useState('');
   const [doctor, setDoctor] = useState('');
   const [date, setDate] = useState('');
@@ -30,7 +30,7 @@ function BodyMaket() {
   };
 
   const addNewTab = async () => {
-   if(!(sick || date || doctor || patient)) {
+   if(!sick || !date || !doctor || !patient) {
 		return errorMessage("Все поля должны быть заполнены");
 	 }
     try{
@@ -48,8 +48,10 @@ function BodyMaket() {
 			})	
 		} catch (e) {
 			errorMessage("Что-то пошло не так на сервере");
-		}
+    }
+    showAllTabs();
   }
+
   return (
     <div>
       <div className="maket-tables">

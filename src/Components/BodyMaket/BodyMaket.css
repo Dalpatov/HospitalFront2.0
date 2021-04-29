@@ -1,7 +1,7 @@
 .maket-tables {
   display: flex;
   align-items: flex-end;
-  padding: 1vh 1vw;
+  padding: 1vh 0 2vh 0;
   justify-content: center;
   width: 100%;
   background: #C5E9FF;
@@ -9,11 +9,18 @@
   display: flex;
 }
 
+.doctorInput {
+  background: white;
+}
+
 .maket-patient {
   display: flex;
   flex-direction: column;
+  
 }
-
+.input-tabs-patient {
+  background: white;
+}
 .maket-doctor {
   width: 13vw;
   padding-left: 1vw;

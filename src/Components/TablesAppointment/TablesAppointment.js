@@ -10,15 +10,15 @@ import {
  } from '@material-ui/core';
 import DeletePic from '../../Img/DeletePic.svg';
 import EditPic from '../../Img/EditPic.svg';
-import './TabsAppointment.css';
+import './TablesAppointment.css';
 
-function TabsAppoinment({
+function TablesAppointment({
   appointment,
   setYourCheck,
 }) {
   
   return (
-    <TableContainer className="r"component={Paper} >
+    <TableContainer className="all-tables" component={Paper} >
       <Table 
         className="tables-style"
         aria-label="a dense table"
@@ -34,7 +34,9 @@ function TabsAppoinment({
         </TableHead>
         <TableBody>
           {appointment.map((value, index) => (
-            <TableRow key={`appointment-${value.patient}`}>
+            <TableRow 
+              key={`appointment-${value.patient}`}
+            >
               <TableCell
                 className="appoint-foot"
               >
@@ -77,8 +79,4 @@ function TabsAppoinment({
     </TableContainer>
   );
 }
-export default TabsAppoinment;
-
-
-
-
+export default TablesAppointment;

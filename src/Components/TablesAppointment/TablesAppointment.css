@@ -1,4 +1,4 @@
-.MuiPaper-root.r {
+.MuiPaper-root.all-tables {
   background: #C5E9FF;
   display: flex;
   justify-content: center;
@@ -69,8 +69,8 @@
   font-weight: 300;
   font-size: 18px;
   line-height: 21px;
-  }
+}
   
-  .delete-padding{
-    padding-left: 30px;
-  }
+.delete-padding {
+  padding-left: 30px;
+}

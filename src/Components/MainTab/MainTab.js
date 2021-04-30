@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import HeaderAll from '../HeaderAll/HeaderAll';
 import BodyMaket from '../BodyMaket/BodyMaket';
-import TabsAppoinment from '../TabsAppoinment/TabsAppoinment';
+import TablesAppointment from '../TablesAppointment/TablesAppointment';
 
 function MainTab() {
   const [appointment, setAppointment] = useState([]);
@@ -23,7 +23,7 @@ function MainTab() {
           showAllTabs={showAllTabs}
           setYourCheck={setYourCheck}
         />
-        <TabsAppoinment
+        <TablesAppointment
           appointment={appointment}
           setYourCheck={setYourCheck}
         />  

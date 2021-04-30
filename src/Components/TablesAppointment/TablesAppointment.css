@@ -1,0 +1,76 @@
+.MuiPaper-root.all-tables {
+  background: #C5E9FF;
+  display: flex;
+  justify-content: center;
+  box-shadow: inset 1px 8px 10px 0px rgba(0, 0, 0, 0.37);
+}
+
+.MuiTableRow-root.tables-row-style {
+  width: 200vw;
+  background: #C4C4C4;
+  border-bottom: 1px solid black;
+}
+
+.MuiTable-root.tables-style {
+  background-color: white;
+  border: 2px solid black;
+  margin: 20px;
+}
+
+.appoint-patient1.MuiTableCell-root {
+  width: 20%;
+  text-align: center;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.appoint-patient2.MuiTableCell-root {
+  text-align: center;
+  width: 15%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+}
+.appoint-patient3.MuiTableCell-root {
+  text-align: center;
+  width: 35%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+}
+.appoint-patient4.MuiTableCell-root {
+  width: 10%;
+  text-align: center;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.MuiTableCell-root {
+  word-break: break-word;
+  text-align: justify;
+}
+
+.appoint-foot.MuiTableCell-root {
+  text-align: center;
+  border-bottom: 0px;
+  border-right: 2px solid black;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+}
+  
+.delete-padding {
+  padding-left: 30px;
+}

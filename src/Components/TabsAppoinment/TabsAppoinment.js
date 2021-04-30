@@ -10,7 +10,6 @@ import DeletePic from '../../Img/DeletePic.svg';
 import EditPic from '../../Img/EditPic.svg';
 import './TabsAppointment.css';
 
-
 function TabsAppoinment({
   appointment,
   setYourCheck,
@@ -35,27 +34,27 @@ function TabsAppoinment({
           {appointment.map((value, index) => (
             <TableRow key={`appointment-${value.patient}`}>
               <TableCell
-                className="appoint-patient"
+                className="appoint-foot"
               >
                 {value.patient}
               </TableCell>
               <TableCell
-                className="appoint-doc"
+                className="appoint-foot"
               >
                 {value.doctor}
               </TableCell>
               <TableCell
-                className="appoint-date"
+                className="appoint-foot"
               >
                 {value.date}
               </TableCell>
               <TableCell
-                className="appoint-sick"
+                className="appoint-foot"
               >
                 {value.sick}
               </TableCell>
               <TableCell 
-                className="appoint-img"
+                className="appoint-foot"
               >
                 <img 
                   src={EditPic} 
@@ -63,9 +62,9 @@ function TabsAppoinment({
                   onClick={() => edit(index)}
                 />
                 <img 
+                  className='delete-padding'
                   src={DeletePic}
                   alt={"DeletePic"} 
-                  className='delete-padding'
                   onClick={() => del(index)}
                 />
               </TableCell>

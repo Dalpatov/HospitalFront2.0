@@ -16,11 +16,12 @@
 .maket-patient {
   display: flex;
   flex-direction: column;
-  
 }
+
 .input-tabs-patient {
   background: white;
 }
+
 .maket-doctor {
   width: 13vw;
   padding-left: 1vw;

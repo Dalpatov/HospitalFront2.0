@@ -6,7 +6,7 @@ import TablesAppointment from '../TablesAppointment/TablesAppointment';
 
 function MainTab() {
   const [appointment, setAppointment] = useState([]);
-  const [yourCheck, setYourCheck] = useState(false);
+  const [flagChange, setFlagChange] = useState(false);
 
   useEffect(() => showAllTabs(), []);
 
@@ -21,11 +21,13 @@ function MainTab() {
       <HeaderAll name="Приемы"/>
         <BodyMaket
           showAllTabs={showAllTabs}
-          setYourCheck={setYourCheck}
+          setFlagChange={setFlagChange}
         />
         <TablesAppointment
+          showAllTabs={showAllTabs}
           appointment={appointment}
-          setYourCheck={setYourCheck}
+          setFlagChange={setFlagChange}
+          flagChange={flagChange}
         />  
     </div> 
   );

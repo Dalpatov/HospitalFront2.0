@@ -4,7 +4,7 @@ import { TextField, MenuItem } from '@material-ui/core';
 import Alert from '../Alert/Alert';
 import './BodyMaket.css';
 
-function BodyMaket({ showAllTabs }) {
+function BodyMaket({ showAllTabs, setFlagChange }) {
   const [patient, setPatient] = useState('');
   const [doctor, setDoctor] = useState('');
   const [date, setDate] = useState('');

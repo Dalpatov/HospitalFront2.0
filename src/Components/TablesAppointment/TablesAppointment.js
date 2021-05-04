@@ -14,12 +14,13 @@ import DeletePic from '../../Img/DeletePic.svg';
 import EditPic from '../../Img/EditPic.svg';
 import './TablesAppointment.css';
 
-function TablesAppointment({
-  appointment,
-  showAllTabs,
-  setFlagChange, 
-  flagChange
-}) {
+function TablesAppointment(props) {
+  const { 
+    appointment,
+    showAllTabs,
+    setFlagChange, 
+    flagChange
+  } = props;
   const [indexEdit, setIndexEdit] = useState(false);
   const [deleteFlag, setDeleteFlag] = useState(false);
   const [editFlag, setEditFlag] = useState(false);
@@ -98,8 +99,7 @@ function TablesAppointment({
           </TableBody>
         </Table>
       </TableContainer>
-      {deleteFlag &&
-      <Delete
+      {deleteFlag && <Delete
         setDeleteFlag={setDeleteFlag}
         deleteFlag={deleteFlag}
         id={idDel}
@@ -107,8 +107,7 @@ function TablesAppointment({
         showAllTabs={showAllTabs}
       />
       }
-      {editFlag &&
-      <DraggableDialog 
+      {editFlag && <DraggableDialog 
         setEditFlag={setEditFlag} 
         editFlag={editFlag} 
         appointment={appointment} 

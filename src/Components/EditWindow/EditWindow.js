@@ -11,13 +11,14 @@ import {
 import axios from 'axios';
 import './EditWindow.css';
 
-export default function DraggableDialog({ 
-  appointment,
-  setEditFlag,
-  editFlag,
-  index,
-  showAllTabs
-  }) {
+export default function DraggableDialog(props) {
+  const {
+    appointment,
+    setEditFlag,
+    editFlag,
+    index,
+    showAllTabs
+  } = props; 
   const [open, setOpen] = useState(false);
   const [patient, setPatient] = useState(`${appointment[index].patient}`);
   const [doctor, setDoctor] = useState(`${appointment[index].doctor}`);
@@ -68,7 +69,7 @@ export default function DraggableDialog({
       <Dialog
         className='all-window'
         open={open}
-        onClose={handleClose}
+        onClose={() => handleClose()}
         aria-labelledby="draggable-dialog-title"
       >
         <DialogTitle 
@@ -141,12 +142,19 @@ export default function DraggableDialog({
           </div>
         </DialogContent>
         <DialogActions className="button-dialog">
-          <Button autoFocus onClick={AbortChanges} color="primary">
+          <Button 
+            autoFocus
+            onClick={() => AbortChanges()}
+            color="primary"
+          >
             <div className='cancel'>
               Cancel
             </div>
           </Button>
-          <Button onClick={handleClose} color="primary">
+          <Button 
+            onClick= {() => handleClose()}
+            color="primary"
+          >
             <div className='del'>
               Save
             </div>

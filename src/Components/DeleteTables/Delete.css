@@ -1,9 +1,9 @@
 .del {
- background: rgba(197, 233, 255, 0.72);
- border: 2px solid rgba(197, 233, 255, 0.72);
- box-sizing: border-box;
- border-radius: 4px;
- padding: 1vh 5vw;
+  background: rgba(197, 233, 255, 0.72);
+  border: 2px solid rgba(197, 233, 255, 0.72);
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 1vh 5vw;
 }
 
 .cancel {
@@ -36,8 +36,8 @@
     "Oxygen", "Ubuntu", "Cantarell", 
     "Fira Sans", "Droid Sans", "Helvetica Neue",
   sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   color: #000000;
   font-style: normal;
   font-weight: 300;
@@ -46,6 +46,6 @@
 }
 
 .content {
-  margin-top: 3vh;
-  margin-bottom: 3vh;
+  margin: 3vh 0;
+  
 }

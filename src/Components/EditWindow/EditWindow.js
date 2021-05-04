@@ -11,7 +11,13 @@ import {
 import axios from 'axios';
 import './EditWindow.css';
 
-export default function DraggableDialog({ appointment, setEditFlag, editFlag, index, showAllTabs }) {
+export default function DraggableDialog({ 
+  appointment,
+  setEditFlag,
+  editFlag,
+  index,
+  showAllTabs
+  }) {
   const [open, setOpen] = useState(false);
   const [patient, setPatient] = useState(`${appointment[index].patient}`);
   const [doctor, setDoctor] = useState(`${appointment[index].doctor}`);
@@ -24,7 +30,7 @@ export default function DraggableDialog({ appointment, setEditFlag, editFlag, in
     "Викторов Виктор Ашотович",
     "Грузинов Чечен Нетолеранстович",
     "Горбатова Собака Сутуловна",
-  ]
+  ];
 
   useEffect(() => {
     if(editFlag) handleClickOpen();
@@ -42,14 +48,13 @@ export default function DraggableDialog({ appointment, setEditFlag, editFlag, in
     let dateNew = date.split('-');
     dateNew = dateNew[2] + '-' + dateNew[1] + '-' + dateNew[0];
     setEditFlag(false);
-    
-  await axios.patch('http://localhost:8000/patchTabs', {
-    _id: appointment[index]._id,
-    patient,
-    doctor,
-    date: dateNew,
-    sick
-    })
+    await axios.patch('http://localhost:8000/patchTabs', {
+      _id: appointment[index]._id,
+      patient,
+      doctor,
+      date: dateNew,
+      sick
+      });
     showAllTabs();
   };
 

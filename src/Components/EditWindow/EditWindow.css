@@ -1,7 +1,7 @@
-.all-window .MuiDialog-paperWidthSm  {
-  width: 80vw;
+.all-windows .MuiDialog-paperWidthSm  {
+  width: 70vw;
   max-width: 70vw;
-  height: 70vh;
+  height: 60vh;
 }
 
 .button-dialog {

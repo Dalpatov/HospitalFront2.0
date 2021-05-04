@@ -8,6 +8,7 @@ import {
   Button
 } from '@material-ui/core';
 import axios from 'axios';
+import './Delete.css';
 
 export default function DraggableDialog({
   deleteFlag,
@@ -23,9 +24,9 @@ const handleClickOpen = () => {
 };
 
 const handleClose = async() => {
+  setOpen(false);
+  setDeleteFlag(false);
   await axios.delete(`http://localhost:8000/deleteTabs?_id=${id}`);
-    setOpen(false);
-    setDeleteFlag(false);
     showAllTabs();
 };
 
@@ -34,37 +35,32 @@ const handleCloseCancel = () => {
 };
 
 useEffect(() => {
-if(deleteFlag) handleClickOpen();
+  if(deleteFlag) handleClickOpen();
 }, [deleteFlag]);
 
   return (
     <div>
       <Dialog
+        className="all-window"
         open={open}
         onClose={handleClose}
         aria-labelledby="draggable-dialog-title"
       >
-        <DialogTitle 
-          id="draggable-dialog-title" 
-          className=''
-        >
-        <div className=''>Удалить прием</div>
+        <DialogTitle id="draggable-dialog-title" className='top'>
+          <span className='top-text'>Удалить прием</span>
         </DialogTitle>
-        <DialogContent className=''>
+        <DialogContent className='content'>
           <DialogContentText >
-            <div 
-            className='text-delete'>
-            Вы уверены что хотите удалить эту запись?
-            </div>
+            <span className='text-delete'>Вы уверены что хотите удалить прием?</span>
           </DialogContentText>
         </DialogContent>
-        <DialogActions className=''>
-          <Button onClick={handleCloseCancel}>
-            <div className=''>Cancel</div>
-          </Button>
-          <Button onClick={handleClose}>
-            <div className=''>Delete</div>
-          </Button>
+        <DialogActions className='button-dil'>
+        <Button onClick={handleCloseCancel}>
+          <span className='cancel'>Cancel</span>
+        </Button>
+        <Button onClick={handleClose}>
+          <span className='del'>Delete</span>
+        </Button>
         </DialogActions>
       </Dialog>
     </div>

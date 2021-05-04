@@ -19,7 +19,7 @@ function BodyMaket({ showAllTabs, setFlagChange }) {
     "Викторов Виктор Ашотович",
     "Грузинов Чечен Нетолеранстович",
     "Горбатова Собака Сутуловна",
-  ]
+  ];
 	let dateNew = date.split('-');
 	dateNew = dateNew[2] + '-' + dateNew[1] + '-' + dateNew[0];
 

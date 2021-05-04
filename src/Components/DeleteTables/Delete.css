@@ -1,0 +1,51 @@
+.del {
+  background: rgba(197, 233, 255, 0.72);
+  border: 2px solid rgba(197, 233, 255, 0.72);
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 1vh 5vw;
+}
+
+.cancel {
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 1vh 5vw;
+}
+
+.top {
+  box-shadow: 4px 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 30px;
+  color: #000000;
+  font-style: normal;
+  font-weight: 300;
+}
+
+.button-dil {
+  box-shadow: 4px 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.all-window .MuiDialog-paperWidthSm {
+  width: 50vw;
+  max-width: 70vw;
+  height: 35vh;
+}
+
+.text-delete {
+  font-family: -apple-system, BlinkMacSystemFont, "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", 
+    "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  color: #000000;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.content {
+  margin: 3vh 0;
+  
+}

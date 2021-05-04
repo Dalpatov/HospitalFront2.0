@@ -8,6 +8,7 @@ import {
   TableRow,
   Paper
  } from '@material-ui/core';
+import Delete from '../DeleteTables/Delete'
 import DraggableDialog from '../EditWindow/EditWindow';
 import DeletePic from '../../Img/DeletePic.svg';
 import EditPic from '../../Img/EditPic.svg';
@@ -22,12 +23,20 @@ function TablesAppointment({
   const [indexEdit, setIndexEdit] = useState(false);
   const [deleteFlag, setDeleteFlag] = useState(false);
   const [editFlag, setEditFlag] = useState(false);
+  const [idDel, setIdDel] = useState(false);
   
   function edit(index) {
     setEditFlag(1);
     setIndexEdit(index);
     setFlagChange(1);
   } 
+
+  const del = async(index) => {
+    setDeleteFlag(1);
+    setIdDel(appointment[index]._id);
+    setFlagChange(1);
+  }
+
   return (
     <div>
     <TableContainer className="all-tables" component={Paper} >
@@ -89,6 +98,14 @@ function TablesAppointment({
         </TableBody>
       </Table>
     </TableContainer>
+    {deleteFlag &&
+    <Delete
+      setDeleteFlag={setDeleteFlag}
+      deleteFlag={deleteFlag}
+      id={idDel}
+      appointment={appointment}
+    />
+    }
     {editFlag &&
     <DraggableDialog 
       setEditFlag={setEditFlag} 

@@ -21,7 +21,7 @@ function BodyMaket({ showAllTabs, setFlagChange }) {
     "Горбатова Собака Сутуловна",
   ];
 	let dateNew = date.split('-');
-	dateNew = dateNew[2] + '-' + dateNew[1] + '-' + dateNew[0];
+	dateNew = dateNew[1] + '-' + dateNew[2] + '-' + dateNew[0];
 
 	const errorMessage = (textError) => {
     setAlertStyle('error');

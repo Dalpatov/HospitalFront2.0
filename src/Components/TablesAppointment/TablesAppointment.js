@@ -32,7 +32,7 @@ function TablesAppointment(props) {
   const [noneSort, setNoneSort] = useState(false);
 
   
-  function edit(index) {
+  const edit = (index) => {
     setEditFlag(1);
     setIndexEdit(index);
     setFlagChange(1);
@@ -44,18 +44,15 @@ function TablesAppointment(props) {
     setFlagChange(1);
   }
 
-  function Sorting (e) {
+  const Sorting = (e) => {
     setSort(e.target.value);
     appointment.sort((a, b) => {
       if(e.target.value === 'date') {
-        let date2 = a.date.split('-');
-        date2 = date2[2] + '-' + date2[1] + '-' + date2[0];
-        let date3 = b.date.split('-');
-        date3 = date3[2] + '-' + date3[1] + '-' + date3[0];
-        return (date2 > date3? 1 : (date2 < date3) ? -1 :  0)
+        let c = new Date(a.date);
+        let d = new Date(b.date);
+        return a.date - b.date
       } else {
-        return (a[e.target.value] > b[e.target.value]) ? 1 :
-        (a[e.target.value] < b[e.target.value]) ? -1 : 0 
+        return (a[e.target.value] > b[e.target.value]) ? 1 : (a[e.target.value] < b[e.target.value]) ? -1 : 0 
       }
     })
     if(e.target.value !== '_id') {
@@ -68,36 +65,28 @@ function TablesAppointment(props) {
     }
   }
 
-  function SortingBy (e) {
+  const SortingBy = (e) => {
     setSortBy(e.target.value);
       if(e.target.value === "asc") {
         appointment.sort((a, b) => {
           if(sort === 'date') {
-            let date2 = a.date.split('-');
-            date2 = date2[2] + '-' + date2[1] + '-' + date2[0];
-            let date3 = b.date.split('-');
-            date3 = date3[2] + '-' + date3[1] + '-' + date3[0];
-            return (date2 > date3 ? 1 :
-            (date2 < date3) ? -1 :  0)
+            let c = new Date(a.date);
+            let d = new Date(b.date);
+            return c - d
           } else {
-            return (a[sort] > b[sort]) ? 1 :
-            (a[sort] < b[sort]) ? -1 : 0 
+            return (a[sort] > b[sort]) ? 1 : (a[sort] < b[sort]) ? -1 : 0 
           }  
         })
       } else {
         appointment.sort((a, b) => {
           if(sort === 'date') {
-            let date2 = a.date.split('-');
-            date2 = date2[2] + '-' + date2[1] + '-' + date2[0];
-            let date3 = b.date.split('-');
-            date3 = date3[2] + '-' + date3[1] + '-' + date3[0];
-            return (date2 < date3? 1 :
-            (date2 > date3) ? -1 : 0)
+            let c = new Date(a.date);
+            let d = new Date(b.date);
+            return d - c
           } else {
-            return (a[sort] < b[sort]) ? 1 : 
-            (a[sort] > b[sort]) ? -1 : 0 
+            return (a[sort] < b[sort]) ? 1 : (a[sort] > b[sort]) ? -1 : 0 
           }
-          })  
+          })
       } 
   }  
 
@@ -143,7 +132,7 @@ function TablesAppointment(props) {
                 <TextField
                   className="field-content"
                   select
-                  value={sortBy? sortBy : appoitntmentSortBy[0].key}
+                  value={sortBy ? sortBy : appoitntmentSortBy[0].key}
                   onChange={(e) => SortingBy(e)}
                   variant="outlined"
                 >

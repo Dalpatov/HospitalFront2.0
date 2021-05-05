@@ -12,6 +12,7 @@ import Delete from '../DeleteTables/Delete'
 import DraggableDialog from '../EditWindow/EditWindow';
 import DeletePic from '../../Img/DeletePic.svg';
 import EditPic from '../../Img/EditPic.svg';
+import AddFilter from '../../Img/AddFilter.svg';
 import './TablesAppointment.css';
 
 function TablesAppointment(props) {
@@ -25,6 +26,9 @@ function TablesAppointment(props) {
   const [deleteFlag, setDeleteFlag] = useState(false);
   const [editFlag, setEditFlag] = useState(false);
   const [idDel, setIdDel] = useState(false);
+  const [filter, setFilter] = useState(false);
+  const [fromDate, setFromDate] = useState(false);
+  const [byDate, setByDate] = useState(false);
   
   function edit(index) {
     setEditFlag(1);
@@ -38,8 +42,35 @@ function TablesAppointment(props) {
     setFlagChange(1);
   }
 
+  function filterFunc (fromDate, byDate) {
+    let filterAppoint = appointment.filter( item => {
+      let date2 = item.date.split('-');
+      date2 = date2[2] + '-' + date2[1] + '-' + date2[0];
+      if(!fromDate && !byDate) return 1;
+      else if(fromDate && byDate) return (date2 >= fromDate && date2 <= byDate);
+      else if(fromDate) return (date2 >= fromDate);
+      else return (date2 <= byDate);
+    });
+    setTable(newArr);
+  }
+
   return (
     <div>
+      {!filter && 
+        <div className='new-filter'>
+          <img 
+            src={AddFilter} 
+            alt={"AddFilter"} 
+            className='added-filter'
+            onClick={() => setFilter(1)}
+          />
+        </div>
+      }
+      {filter && 
+      <div className="from-box">
+        
+
+      }
       <TableContainer className="all-tables" component={Paper} >
         <Table 
           className="tables-style"

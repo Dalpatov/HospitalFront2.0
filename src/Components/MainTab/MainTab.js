@@ -4,7 +4,10 @@ import HeaderAll from '../HeaderAll/HeaderAll';
 import BodyMaket from '../BodyMaket/BodyMaket';
 import TablesAppointment from '../TablesAppointment/TablesAppointment';
 
-function MainTab() {
+const MainTab = () => {
+  const [sort, setSort] = useState(false);
+  const [sortBy, setSortBy] = useState(false);
+  const [noneSort, setNoneSort] = useState(false);
   const [appointment, setAppointment] = useState([]);
   const [flagChange, setFlagChange] = useState(false);
 
@@ -20,27 +23,27 @@ function MainTab() {
     });
   }
 
-  // const Sorting = (e) => {
-  //   setSort(e.target.value);
-  //   appointment.sort((a, b) => a[e.target.value] > b[e.target.value] ? 1 : a[e.target.value] < b[e.target.value] ? -1 : 0);
+  const Sorting = (e) => {
+    setSort(e.target.value);
+    appointment.sort((a, b) => a[e.target.value] > b[e.target.value] ? 1 : a[e.target.value] < b[e.target.value] ? -1 : 0);
     
-  //   if(e.target.value !== '_id') {
-  //     setSortBy(1);
-  //   } else {
-  //     showAllTabs();
-  //     setSortBy('');
-  //     setSort('');
-  //     setNoneSort(0);
-  //   }
-  //   setAppointment(appointment);
-  // }
+    if(e.target.value !== '_id') {
+      setSortBy(1);
+    } else {
+      showAllTabs();
+      setSortBy('');
+      setSort('');
+      setNoneSort(0);
+    }
+    setAppointment(appointment);
+  }
 
-  // const SortingBy = (e) => {
-  //   setSortBy(e.target.value);
-  //   const flag = e.target.value === "asc";
-  //   appointment.sort((a, b) => b[sort] > a[sort] ? (flag ? -1 : 1) : b[sort] < a[sort] ? (flag ? 1 : -1)  : 0);
-  //   setAppointment(appointment);
-  // } 
+  const SortingBy = (e) => {
+    setSortBy(e.target.value);
+    const flag = e.target.value === "asc";
+    appointment.sort((a, b) => b[sort] > a[sort] ? (flag ? -1 : 1) : b[sort] < a[sort] ? (flag ? 1 : -1)  : 0);
+    setAppointment(appointment);
+  } 
 
   return (
     <div>
@@ -55,7 +58,10 @@ function MainTab() {
           setFlagChange={setFlagChange}
           flagChange={flagChange}
           sortingElememnts={sortingElememnts}
-
+          SortingBy={SortingBy}
+          Sorting={Sorting}
+          sort={sort}
+          sortBy={sortBy}
         />  
     </div> 
   );

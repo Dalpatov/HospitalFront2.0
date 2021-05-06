@@ -21,19 +21,16 @@ function TablesAppointment(props) {
     appointment,
     showAllTabs,
     setFlagChange, 
-    flagChange,
-    sortingElememnts,
- 
+    Sorting,
+    SortingBy,
+    sort,
+    sortBy 
   } = props;
   const [indexEdit, setIndexEdit] = useState(false);
   const [deleteFlag, setDeleteFlag] = useState(false);
   const [editFlag, setEditFlag] = useState(false);
   const [idDel, setIdDel] = useState(false);
-  const [sort, setSort] = useState(false);
-  const [sortBy, setSortBy] = useState(false);
-  const [noneSort, setNoneSort] = useState(false);
-
-  
+    
   const edit = (index) => {
     setEditFlag(1);
     setIndexEdit(index);
@@ -45,28 +42,6 @@ function TablesAppointment(props) {
     setIdDel(appointment[index]._id);
     setFlagChange(1);
   }
-
-  const Sorting = (e) => {
-    setSort(e.target.value);
-    appointment.sort((a, b) => a[e.target.value] > b[e.target.value] ? 1 : a[e.target.value] < b[e.target.value] ? -1 : 0);
-    
-    if(e.target.value !== '_id') {
-      setSortBy(1);
-    } else {
-      showAllTabs();
-      setSortBy('');
-      setSort('');
-      setNoneSort(0);
-    }
-    sortingElememnts(appointment);
-  }
-
-  const SortingBy = (e) => {
-    setSortBy(e.target.value);
-    const flag = e.target.value === "asc";
-    appointment.sort((a, b) => b[sort] > a[sort] ? (flag ? -1 : 1) : b[sort] < a[sort] ? (flag ? 1 : -1)  : 0);
-    sortingElememnts(appointment);
-  }  
 
   const appoitntmentSort = [
     {key: 'patient', value: 'Имя'},

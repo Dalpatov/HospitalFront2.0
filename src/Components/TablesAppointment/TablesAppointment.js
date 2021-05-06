@@ -43,19 +43,9 @@ function TablesAppointment(props) {
     setFlagChange(1);
   }
 
-  function filterFunc (fromDate, byDate) {
-    appointment.filter( item => {
-      if(!fromDate && !byDate) return 1;
-      else if(fromDate && byDate) return (item >= fromDate && item <= byDate);
-      else if(fromDate) return (item >= fromDate);
-      else return (item <= byDate);
-    });
-  }
-
   return (
 
     <div>
-      {!filter && 
         <div className='new-filter'>
           <img 
             src={AddFilter} 
@@ -65,7 +55,6 @@ function TablesAppointment(props) {
           />
         </div>
       }
-      {filter && 
         <div className="from-box">
           <span className="from-txt">
             C

@@ -16,6 +16,22 @@ function MainTab() {
     });
   }
 
+  const filterDate = (fromDate, byDate) => {
+    let newArray = appointment.filter(val=>{
+      if(fromDate && byDate){
+      return dateNew > fromDate && dateNew < byDate
+      }
+      if(fromDate && !byDate) {
+        return dateNew >fromDate
+      }
+      if(byDate && !fromDate) {
+        return dateNew < byDate
+      } else {
+        return false;
+      }
+
+  })
+  }
   return (
     <div>
       <HeaderAll name="Приемы"/>
@@ -28,6 +44,7 @@ function MainTab() {
           appointment={appointment}
           setFlagChange={setFlagChange}
           flagChange={flagChange}
+          filterDate={filterDate}
         />  
     </div> 
   );

@@ -27,7 +27,7 @@ function TablesAppointment(props) {
   const [deleteFlag, setDeleteFlag] = useState(false);
   const [editFlag, setEditFlag] = useState(false);
   const [idDel, setIdDel] = useState(false);
-  const [filter, setFilter] = useState(false);
+  const [filter, setFilter] = useState(1);
   const [fromDate, setFromDate] = useState(false);
   const [byDate, setByDate] = useState(false);
   
@@ -89,7 +89,7 @@ function TablesAppointment(props) {
           />
           <button 
             className="active-filter"
-            onClick={() => filterFunc(fromDate, byDate)}>
+            onClick={() => filterDate(fromDate, byDate)}>
           </button>
         </div>
       }

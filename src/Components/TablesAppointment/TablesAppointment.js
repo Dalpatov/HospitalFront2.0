@@ -47,47 +47,27 @@ function TablesAppointment(props) {
   const Sorting = (e) => {
     setSort(e.target.value);
     appointment.sort((a, b) => {
-      if(e.target.value === 'date') {
-        let c = new Date(a.date);
-        let d = new Date(b.date);
-        return a.date - b.date
-      } else {
-        return (a[e.target.value] > b[e.target.value]) ? 1 : (a[e.target.value] < b[e.target.value]) ? -1 : 0 
-      }
+      return (a[e.target.value] > b[e.target.value]) ? 1 : (a[e.target.value] < b[e.target.value]) ? -1 : 0   
     })
-    if(e.target.value !== '_id') {
-      setSortBy(1);
-    } else {
-      showAllTabs();
-      setSortBy('');
-      setSort('');
-      setNoneSort(0);
-    }
+      if(e.target.value !== '_id') {
+        setSortBy(1);
+      } else {
+        showAllTabs();
+        setSortBy('');
+        setSort('');
+        setNoneSort(0);
+      }
   }
 
   const SortingBy = (e) => {
     setSortBy(e.target.value);
+    appointment.sort((a, b) => {
       if(e.target.value === "asc") {
-        appointment.sort((a, b) => {
-          if(sort === 'date') {
-            let c = new Date(a.date);
-            let d = new Date(b.date);
-            return c - d
-          } else {
-            return (a[sort] > b[sort]) ? 1 : (a[sort] < b[sort]) ? -1 : 0 
-          }  
-        })
+        return (a[sort] > b[sort]) ? 1 : (a[sort] < b[sort]) ? -1 : 0     
       } else {
-        appointment.sort((a, b) => {
-          if(sort === 'date') {
-            let c = new Date(a.date);
-            let d = new Date(b.date);
-            return d - c
-          } else {
-            return (a[sort] < b[sort]) ? 1 : (a[sort] > b[sort]) ? -1 : 0 
-          }
-          })
-      } 
+        return (a[sort] < b[sort]) ? 1 : (a[sort] > b[sort]) ? -1 : 0 
+      }
+    })  
   }  
 
   const appoitntmentSort = [

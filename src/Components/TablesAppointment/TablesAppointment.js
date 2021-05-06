@@ -6,7 +6,8 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Paper
+  Paper,
+  TextField
  } from '@material-ui/core';
 import Delete from '../DeleteTables/Delete'
 import DraggableDialog from '../EditWindow/EditWindow';
@@ -43,18 +44,16 @@ function TablesAppointment(props) {
   }
 
   function filterFunc (fromDate, byDate) {
-    let filterAppoint = appointment.filter( item => {
-      let date2 = item.date.split('-');
-      date2 = date2[2] + '-' + date2[1] + '-' + date2[0];
+    appointment.filter( item => {
       if(!fromDate && !byDate) return 1;
-      else if(fromDate && byDate) return (date2 >= fromDate && date2 <= byDate);
-      else if(fromDate) return (date2 >= fromDate);
-      else return (date2 <= byDate);
+      else if(fromDate && byDate) return (item >= fromDate && item <= byDate);
+      else if(fromDate) return (item >= fromDate);
+      else return (item <= byDate);
     });
-    setTable(newArr);
   }
 
   return (
+
     <div>
       {!filter && 
         <div className='new-filter'>
@@ -67,9 +66,32 @@ function TablesAppointment(props) {
         </div>
       }
       {filter && 
-      <div className="from-box">
-        
-
+        <div className="from-box">
+          <span className="from-txt">
+            C
+          </span>  
+          <TextField
+            className='from-value' 
+            value={fromDate}
+            type='date'
+            onChange={(e) => setFromDate(e.target.value)}
+            variant="outlined"
+          />
+          <span className="from-txt">
+            ПО
+          </span>
+          <TextField
+            className='by-value' 
+            type='date'
+            value={byDate}
+            onChange={(e) => setByDate(e.target.value)}
+            variant="outlined"
+          />
+          <button 
+            className="active-filter"
+            onClick={() => filterFunc(fromDate, byDate)}>
+          </button>
+        </div>
       }
       <TableContainer className="all-tables" component={Paper} >
         <Table 

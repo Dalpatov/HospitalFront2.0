@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Table,
   TableBody,
@@ -21,7 +21,9 @@ function TablesAppointment(props) {
     appointment,
     showAllTabs,
     setFlagChange, 
-    flagChange
+    flagChange,
+    sortingElememnts,
+ 
   } = props;
   const [indexEdit, setIndexEdit] = useState(false);
   const [deleteFlag, setDeleteFlag] = useState(false);
@@ -46,28 +48,24 @@ function TablesAppointment(props) {
 
   const Sorting = (e) => {
     setSort(e.target.value);
-    appointment.sort((a, b) => {
-      return (a[e.target.value] > b[e.target.value]) ? 1 : (a[e.target.value] < b[e.target.value]) ? -1 : 0   
-    })
-      if(e.target.value !== '_id') {
-        setSortBy(1);
-      } else {
-        showAllTabs();
-        setSortBy('');
-        setSort('');
-        setNoneSort(0);
-      }
+    appointment.sort((a, b) => a[e.target.value] > b[e.target.value] ? 1 : a[e.target.value] < b[e.target.value] ? -1 : 0);
+    
+    if(e.target.value !== '_id') {
+      setSortBy(1);
+    } else {
+      showAllTabs();
+      setSortBy('');
+      setSort('');
+      setNoneSort(0);
+    }
+    sortingElememnts(appointment);
   }
 
   const SortingBy = (e) => {
     setSortBy(e.target.value);
-    appointment.sort((a, b) => {
-      if(e.target.value === "asc") {
-        return (a[sort] > b[sort]) ? 1 : (a[sort] < b[sort]) ? -1 : 0     
-      } else {
-        return (a[sort] < b[sort]) ? 1 : (a[sort] > b[sort]) ? -1 : 0 
-      }
-    })  
+    const flag = e.target.value === "asc";
+    appointment.sort((a, b) => b[sort] > a[sort] ? (flag ? -1 : 1) : b[sort] < a[sort] ? (flag ? 1 : -1)  : 0);
+    sortingElememnts(appointment);
   }  
 
   const appoitntmentSort = [
@@ -81,7 +79,13 @@ function TablesAppointment(props) {
     {key: 'asc', value: 'По возрастанию'},
     {key: 'desc', value: 'По убыванию'}
   ];
- 
+
+  const editDate = (date) => {
+    let dateNew = date.split('-');
+    dateNew = dateNew[2] + '-' + dateNew[1] + '-' + dateNew[0];
+    return dateNew;
+  }
+  
   return (
     <div>
       <div className='all-content'>
@@ -164,7 +168,7 @@ function TablesAppointment(props) {
                 <TableCell
                   className="appoint-foot"
                 >
-                  {value.date}
+                  {editDate(value.date)}
                 </TableCell>
                 <TableCell
                   className="appoint-foot"

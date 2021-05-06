@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Table,
   TableBody,
@@ -6,8 +6,10 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Paper
- } from '@material-ui/core';
+  Paper,
+  TextField, 
+  MenuItem
+} from '@material-ui/core';
 import Delete from '../DeleteTables/Delete'
 import DraggableDialog from '../EditWindow/EditWindow';
 import DeletePic from '../../Img/DeletePic.svg';
@@ -19,14 +21,17 @@ function TablesAppointment(props) {
     appointment,
     showAllTabs,
     setFlagChange, 
-    flagChange
+    Sorting,
+    SortingBy,
+    sort,
+    sortBy 
   } = props;
   const [indexEdit, setIndexEdit] = useState(false);
   const [deleteFlag, setDeleteFlag] = useState(false);
   const [editFlag, setEditFlag] = useState(false);
   const [idDel, setIdDel] = useState(false);
-  
-  function edit(index) {
+    
+  const edit = (index) => {
     setEditFlag(1);
     setIndexEdit(index);
     setFlagChange(1);
@@ -38,9 +43,75 @@ function TablesAppointment(props) {
     setFlagChange(1);
   }
 
+  const appoitntmentSort = [
+    {key: 'patient', value: 'Имя'},
+    {key: 'doctor', value: 'Врач'},
+    {key: 'date', value: 'Дата'},
+    {key: '_id', value: 'None'},
+  ];
+
+  const appoitntmentSortBy = [
+    {key: 'asc', value: 'По возрастанию'},
+    {key: 'desc', value: 'По убыванию'}
+  ];
+
+  const editDate = (date) => {
+    let dateNew = date.split('-');
+    dateNew = dateNew[2] + '-' + dateNew[1] + '-' + dateNew[0];
+    return dateNew;
+  }
+  
   return (
     <div>
-      <TableContainer className="all-tables" component={Paper} >
+      <div className='all-content'>
+        <div className='sort-content'>
+          <span className='text-content'>
+            Сортировать по:
+          </span>
+            <TextField
+              className="field-content"
+              select
+              value={sort}
+              onChange={(e) => Sorting(e)}
+              variant="outlined"
+            >
+              {appoitntmentSort.map((item, index) => (
+                <MenuItem 
+                  key={`sorting-${index}`} 
+                  value={item.key}
+                >
+                  {item.value}
+                </MenuItem>
+              ))}
+            </TextField>
+            {sort && <>
+              <span className='text-content'>
+                Направление:
+              </span>
+                <TextField
+                  className="field-content"
+                  select
+                  value={sortBy ? sortBy : appoitntmentSortBy[0].key}
+                  onChange={(e) => SortingBy(e)}
+                  variant="outlined"
+                >
+                  {appoitntmentSortBy.map((item2, index) => (
+                    <MenuItem 
+                      key={`sorting-direction-${index}`} 
+                      value={item2.key}
+                    >
+                      {item2.value}
+                    </MenuItem>
+                  ))}
+                </TextField>
+            </>
+            }
+        </div>
+      </div>
+      <TableContainer 
+        className="all-tables" 
+        component={Paper} 
+      >
         <Table 
           className="tables-style"
           aria-label="a dense table"
@@ -72,7 +143,7 @@ function TablesAppointment(props) {
                 <TableCell
                   className="appoint-foot"
                 >
-                  {value.date}
+                  {editDate(value.date)}
                 </TableCell>
                 <TableCell
                   className="appoint-foot"

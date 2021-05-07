@@ -20,15 +20,18 @@ function BodyMaket({ showAllTabs, setFlagChange }) {
     "Грузинов Чечен Нетолеранстович",
     "Горбатова Собака Сутуловна",
   ];
+<<<<<<< HEAD
 	let dateNew = date.split('-');
 	dateNew = dateNew[1] + '-' + dateNew[2] + '-' + dateNew[0];
 
+=======
+>>>>>>> 18edc6606c0aca405dee66372b075a10f0a76abf
 	const errorMessage = (textError) => {
     setAlertStyle('error');
     setCheck(true);
     setText(textError);
   };
-
+  
   const addNewTab = async () => {
    if(!sick || !date || !doctor || !patient) {
 		return errorMessage("Все поля должны быть заполнены");
@@ -37,7 +40,7 @@ function BodyMaket({ showAllTabs, setFlagChange }) {
 			await axios.post('http://localhost:8000/createTabs', {
         patient,
         doctor,
-        date: dateNew,
+        date: date,
         sick,
       }).then(res => {
           setPatient('');

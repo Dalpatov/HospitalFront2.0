@@ -8,7 +8,7 @@ import {
   Button
 } from '@material-ui/core';
 import axios from 'axios';
-import './Delete.css';
+// import './Delete.css';
 
 export default function DraggableDialog(props) {
   const { 

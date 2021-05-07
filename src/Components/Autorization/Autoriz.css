@@ -1,8 +1,11 @@
+
+
 .body-style-svg1 {
   display: flex;
   height: 90vh;
   background:#C5E9FF;
   box-shadow: inset 1px 8px 10px 0px rgba(0, 0, 0, 0.37);
+  width: 100vw;
 }
 
 .body-pic1 {
@@ -36,7 +39,7 @@
 .reg-login1 {
   margin: 1vw 1vw 1vw 0;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 18px;
   line-height: 21px;
 }
@@ -82,7 +85,7 @@
   margin-top: 2vh;
   justify-content: center;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 18px;
   line-height: 21px;
 }

@@ -1,25 +1,27 @@
 .body-style-svg {
   display: flex;
   height: 90vh;
+  width: 100vw;
   background: #C5E9FF;
   box-shadow: inset 1px 8px 10px 0px rgba(0, 0, 0, 0.37);
 }
 
 .body-pic {
-  margin: 10vw;
-  width: 28vw;
-  height: 40vh;
+  margin: 10%;
+  width: 50%;
+  height: 50%;
 }
 
 .registration-box {
   display: flex;
   flex-direction: column;
   background: white;
-  width: 40vw;
+  width: 40%;
   margin-top: 5vh;
-  padding: 0 4vw;
+  padding: 0 4%;
   border-radius: 5px;
   margin-bottom: 7%;
+  margin-right: 5%;
 }
 
 .reg-span {
@@ -36,7 +38,7 @@
 .reg-login {
   margin: 1vw 1vw 1vw 0;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 18px;
   line-height: 21px;
 }
@@ -82,7 +84,7 @@
   margin-top: 2vh;
   justify-content: center;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 18px;
   line-height: 21px;
 }

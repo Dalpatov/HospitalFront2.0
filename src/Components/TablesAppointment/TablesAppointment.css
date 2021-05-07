@@ -2,19 +2,17 @@
   background: #C5E9FF;
   display: flex;
   justify-content: center;
-  box-shadow: inset 1px 8px 10px 0px rgba(0, 0, 0, 0.37);
 }
 
 .MuiTableRow-root.tables-row-style {
   width: 200vw;
   background: #C4C4C4;
-  border-bottom: 1px solid black;
+  
 }
 
 .MuiTable-root.tables-style {
-  background-color: white;
-  border: 2px solid black;
-  margin: 20px;
+  background-color: white;  
+  margin: 2%;
 }
 
 .appoint-patient1.MuiTableCell-root {
@@ -62,8 +60,6 @@
 
 .appoint-foot.MuiTableCell-root {
   text-align: center;
-  border-bottom: 0px;
-  border-right: 2px solid black;
   font-family: Roboto;
   font-style: normal;
   font-weight: 300;
@@ -73,4 +69,42 @@
   
 .delete-padding {
   padding-left: 30px;
+}
+
+.all-content {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 2vw;
+  font-size: 30pt;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+  margin-top: 2vh;
+  background: #C5E9FF;
+}
+
+.sort-content {
+  display: flex;
+  align-items: center;
+  word-wrap: break-word;
+  max-width: 98vw;
+  display: flex;
+  align-items: center;
+}
+
+.text-content {
+  padding-right: 3vh;
+  padding-left: 1vw;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.field-content .MuiInputBase-root {
+  background-color: white;
+  width: 15vw;
+  height: 47px;
 }

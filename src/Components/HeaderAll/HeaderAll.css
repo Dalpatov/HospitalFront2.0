@@ -1,6 +1,6 @@
 .head {
   display: flex;
-  height: 10vh;
+  height: 10%;
   background: #C5E9FF;
 }
 
@@ -14,5 +14,6 @@
   font-size: 36px;
   line-height: 42px;
   color: #000000;
+  width: 100%;
 }
   

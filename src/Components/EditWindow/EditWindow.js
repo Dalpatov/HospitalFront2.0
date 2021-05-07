@@ -53,7 +53,7 @@ export default function DraggableDialog(props) {
       _id: appointment[index]._id,
       patient,
       doctor,
-      date: dateNew,
+      date,
       sick
       });
     showAllTabs();
@@ -81,25 +81,25 @@ export default function DraggableDialog(props) {
           </div>
         </DialogTitle>
         <DialogContent className="all-content">
-          <div className='content'>
+          <div className='contentes'>
             <span className='span-style'>
               Имя:
             </span>
               <TextField 
                 type='text' 
-                className='input-name-2' 
+                className='text-name' 
                 value={patient} 
                 key={`${appointment[index].patient}`}
                 onChange={(e) => setPatient(e.target.value)}
                 variant="outlined"
               />
           </div>
-          <div className='content'>
+          <div className='contentes'>
             <span className='span-style'>
               Врач:
             </span>
               <TextField
-                className="input-name-doc"
+                className="text-doc"
                 value={doctor}
                 onChange={(e) => setDoctor(e.target.value)}
                 variant="outlined"
@@ -114,25 +114,25 @@ export default function DraggableDialog(props) {
                 ))}
               </TextField>
           </div>
-          <div className='content'>
+          <div className='contentes'>
             <span className='span-style'>
               Дата:
             </span>
               <TextField 
+                className='txt-name' 
                 type='date'
-                className='input-name-2' 
                 value={date} 
                 key={`${appointment[index].date}`}
                 onChange={(e) => setDate(e.target.value)}
                 variant="outlined"
               />
           </div>
-          <div className='content'>
+          <div className='contentes'>
             <span className='span-style'>
               Жалобы:
             </span>
               <TextField 
-                className='input-name-3' 
+                className='text-sick' 
                 type='text' 
                 value={sick} 
                 key={`${appointment[index].sick}`}

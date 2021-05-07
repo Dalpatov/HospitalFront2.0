@@ -53,7 +53,7 @@ function AutorizationPage() {
 
   return (
     <div>
-      <HeaderAll name="Зарегистрироваться в системе" />
+      <HeaderAll name="Войти в систему" />
       <div className="body-style-svg1">
         <img
           className="body-pic1"

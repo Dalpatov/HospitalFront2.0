@@ -2,7 +2,7 @@ import React from 'react';
 import Headpic from '../../Img/Headpic.svg';
 import './HeaderAll.css';
 
-function HeaderAll({ name }) {
+function HeaderAll({ name, className }) {
   return (
     <div>
       <header className="head">

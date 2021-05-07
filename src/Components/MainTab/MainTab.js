@@ -3,6 +3,7 @@ import axios from 'axios';
 import HeaderAll from '../HeaderAll/HeaderAll';
 import BodyMaket from '../BodyMaket/BodyMaket';
 import TablesAppointment from '../TablesAppointment/TablesAppointment';
+import './MainTab.css';
 
 const MainTab = () => {
   const [sort, setSort] = useState(false);
@@ -46,7 +47,7 @@ const MainTab = () => {
   } 
 
   return (
-    <div>
+    <div className="all-priems">
       <HeaderAll name="Приемы"/>
         <BodyMaket
           showAllTabs={showAllTabs}

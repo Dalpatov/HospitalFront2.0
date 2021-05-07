@@ -62,7 +62,7 @@ function TablesAppointment(props) {
   }
   
   return (
-    <div>
+    <div className='all-content2'>
       <div className='all-content'>
         <div className='sort-content'>
           <span className='text-content'>
